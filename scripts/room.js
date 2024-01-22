@@ -26,27 +26,42 @@ function createRooms(data)
   const caption = roomElement.querySelector('.room__caption');
   createEventForButton(buttonTake,caption);
   createEventForName(roomTitle);
-  if(data.isChoise){
-    mouseoutCaption(caption);
-  }
   if(data.bestPrice){
     createEventForCaption(caption);
+  }
+  createEventForCaptionNonReserved(caption);
+  if(data.isChoise){
+    mouseoutCaptionDefoult(caption);
   }
   rooms.append(roomElement); 
 }
 
-function createEventForCaptionReserved(element) {
-  element.addEventListener('mouseout',() => mouseoutCaption(element))
+function createEventForCaptionNonReserved(element) {
+  element.addEventListener('click', ()=>clickCaption(element));
 }
-function mouseoutCaption(element) {
-  const priceBlock = element.querySelector('.price-block')
-  priceBlock.style.display = 'none';
-  const reservedBlock = element.querySelector('.reserved')
-  reservedBlock.style.display = 'flex';
+
+function clickCaption(element) {
+  const reservedBlock = element.querySelector('.reserved');
+  if(reservedBlock.style.display == 'flex') {
+    element.style.background = 'linear-gradient(rgba(10, 34, 64, 0.1), rgba(10, 34, 64, 1))';
+    reservedBlock.style.display = 'none';
+    const priceButton = element.querySelector('.price');
+    if(priceButton.classList.contains('price-button-checked')) {
+      priceButton.classList.remove('price-button-checked');
+    }
+    priceButton.classList.add('price-button');
+    const priceBlock = element.querySelector('.price-block');
+    priceBlock.style.display = 'flex';
+  }
 }
 
 function createEventForCaption(element) {
-  element.addEventListener('mouseover',() => mouseoverCaption(element))
+  element.addEventListener('mouseover',()=> {
+    const reserved = element.querySelector('.reserved');
+    if(reserved.style.display == 'none'||reserved.style.display == false) {
+      mouseoverCaption(element);
+    }
+  });
 }
 
 function mouseoverCaption(element){
@@ -87,9 +102,8 @@ function mouseoutName() {
 }
 //////////////
 function clickRoom(element,caption) {
-  caption.addEventListener('mouseout',() => mouseoutCaption(caption))
-  //createEventForCaptionReserved(caption);
-  return clickRoom1 (element);
+  clickRoom1 (element);
+  caption.addEventListener('mouseleave',() => mouseoutCaption(element,caption))
 }
 
 function clickRoom1(element) {
@@ -102,6 +116,28 @@ function clickRoom1(element) {
         element.classList.add('price-button-mousover');
       }  
     }  
+}
+
+function mouseoutCaption(button,element) {
+  if(button.classList.contains('price-button-checked')) {
+    const priceBlock = element.querySelector('.price-block');
+    priceBlock.style.display = 'none';
+    const reservedBlock = element.querySelector('.reserved');
+    reservedBlock.style.display = 'flex';
+    element.style.background = 'rgba(255, 255, 255, 0.4)';
+    const bestPrice = element.querySelector('.bestPrice');
+    bestPrice.style.display = 'none';
+  }
+}
+
+function mouseoutCaptionDefoult(caption) {
+  const priceBlock = caption.querySelector('.price-block');
+  priceBlock.style.display = 'none';
+  const reservedBlock = caption.querySelector('.reserved');
+  reservedBlock.style.display = 'flex';
+  caption.style.background = 'rgba(255, 255, 255, 0.4)';
+  const bestPrice = caption.querySelector('.bestPrice');
+  bestPrice.style.display = 'none';
 }
 
 function mouseoverRoom() {

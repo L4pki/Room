@@ -47,9 +47,8 @@ html, body {
     left: 0;
     right: 0;
     margin: 0 auto;
-    padding: 25px 20px 10px 27px;
     display: flex;
-    height: 100%;
+    height: 372px;
     background: linear-gradient(rgba(10, 34, 64, 0.1), rgba(10, 34, 64, 1));
     flex-direction: column;
     justify-content: space-between;
@@ -61,7 +60,7 @@ html, body {
     max-width: 1180px;
     margin: 30px auto 0 auto;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 10px 10px;
+    gap: 15px 15px;
 }
 
 @font-face {
@@ -83,12 +82,16 @@ html, body {
 
 .description-block {
     margin-top: 150px;
+    padding: 0px 20px 0px 20px;
 }
+
+
 
 .bestPrice {
     display: none;
     flex-direction: row;
     margin-top: 30px;
+    margin-left: 20px;
     position: absolute;
 }
 
@@ -149,18 +152,50 @@ html, body {
     letter-spacing: 0em;
     text-align: left;
     color: rgba(255, 255, 255, 1);
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .reserved {
+    size: 100%;
+    height: 110px;
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(60, 62, 67, 1);
+}
+
+.reserved__text {
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    color: rgba(255, 255, 255, 1); 
+}
+
+.reserved__text2 {
+    font-family: OpenSans;
+    padding-left: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    color: rgba(255, 75, 119, 1); 
+}
+
+.reserved__bottom-textBox {
+    display: flex;
+    flex-direction: row;
 }
 
 .price-block {
-    width: 317px;
+    width: 340px;
     height: 70px;
     display: flex;
     flex-direction: row;
-    border-top: 1px solid rgba(255, 255, 255, 0.2); 	
+    padding: 0px 0px 20px 20px; 	
 }
 
 .price-value {
@@ -220,7 +255,7 @@ html, body {
 }
 
 .price-button {
-    margin: 10px 0px 10px 15px;
+    margin: 10px 0px 10px 30px;
     font-family: OpenSans;
     font-size: 16px;
     font-weight: 700;
@@ -235,7 +270,7 @@ html, body {
 }
 
 .price-button-checked {
-    margin: 10px 0px 10px 15px;
+    margin: 10px 0px 10px 30px;
     font-family: OpenSans;
     font-size: 16px;
     font-weight: 700;
@@ -251,7 +286,7 @@ html, body {
 }
 
 .price-button-mousover {
-    margin: 10px 0px 10px 15px;
+    margin: 10px 0px 10px 30px;
     font-family: OpenSans;
     font-size: 16px;
     font-weight: 700;
