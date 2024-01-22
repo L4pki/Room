@@ -5,7 +5,8 @@ export const roomsInitialization = [
       link: './images/rooms/number1.jpg',
       cost: '7 900',
       isChoise: false,
-      //number: 0,
+      bestPrice: false,
+      number: 0,
     },
     {
       name: 'Дуплекс',
@@ -13,15 +14,17 @@ export const roomsInitialization = [
       link: './images/rooms/number2.jpg',
       cost: '5 700',
       isChoise: false,
-      //number: 1,
+      bestPrice: true,
+      number: 1,
     },
     {
       name: 'Бизнес-люкс',
       text: 'Трёхкомнатный номер с панорамным видом на Москву-реку',
       link: './images/rooms/number3.jpg',
       cost: '4 900',
-      isChoise: false,
-      //number: 2,
+      isChoise: true,
+      bestPrice: false,
+      number: 2,
     }
   ];
   
