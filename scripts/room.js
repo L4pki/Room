@@ -6,7 +6,7 @@ import roomsInitialization from "../utils/roomsInitialization.js";
 let roomsArray = roomsInitialization.map((item) => item);
 
 
-const roomTemplate = document.querySelector('.room').content;
+const roomTemplate = document.querySelector('.room-pattern').content;
 const rooms = document.querySelector('.rooms');
 
 function createRooms(data)
@@ -23,10 +23,16 @@ function createRooms(data)
   const roomCost = roomElement.querySelector('.room__price');
   roomCost.textContent = data.cost;
   const buttonTake = roomElement.querySelector('.price-button');
+  //const individualClass = 'buttonTake-${data.number}';
+  //buttonTake.classList.add(individualClass);
   rooms.append(roomElement); 
   //createEventForLike(buttonTake);
+  
 }
 
 roomsArray.forEach(room => {
-    createRooms(room);
+  createRooms(room);
 });
+//document.querySelector('.price-button').onclick = function(){
+  //console.log("asdas");
+//}

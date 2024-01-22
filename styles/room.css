@@ -1,0 +1,187 @@
+.room {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: white;
+    margin: 0;
+    width: 372px;
+    height: 372px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgb(129, 129, 129);
+    align-self: center;
+    justify-self: center;
+}
+
+.rooms-backgraund {
+    background: linear-gradient(rgba(222, 237, 255, 0.6), rgba(166, 204, 250, 0.5));
+}
+
+html, body {
+    background-size: cover;
+}
+
+.rooms-container {
+    margin-top: 240px;
+    margin-bottom: 240px;
+}
+
+.room__image {
+    border-radius: 10px 10px 0 0;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    align-self: center;
+    object-position: right top;
+}
+
+.gradient-background {
+    background: linear-gradient(rgba(222, 237, 255, 0.6), rgba(166, 204, 250, 0.5));
+    position: absolute;
+    background-size: 100% 100%;
+}
+
+.room__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 25px 20px 10px 20px;
+    display: flex;
+    height: 100%;
+    background: linear-gradient(rgba(10, 34, 64, 0.1), rgba(10, 34, 64, 1));
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rooms {
+    display: grid;
+    max-width: 1180px;
+    margin: 30px auto 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 10px 10px;
+}
+
+@font-face {
+    font-family: 'Roboto'; 
+    src: url(/fonts/Roboto.ttf); 
+    font-family: 'OpenSans'; 
+    src: url(/fonts/OpenSans.ttf); 
+}
+
+.name {
+    font-family: "Roboto";
+    color: rgba(0, 0, 0, 1);
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 55px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.description-block {
+    margin-top: 150px;
+}
+
+.room__title {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+}
+
+.room__text {
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+}
+
+.price-block {
+    width: 372px;
+    height: 70px;
+    top: 276px;
+    display: flex;
+    flex-direction: row;
+}
+
+.price-value {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-cost {
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 700;
+    padding-left: 20px;
+    height: 20px;
+    margin: 5px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+}
+
+.text-cost2 {
+    font-family: OpenSans;
+    font-size: 19px;
+    font-weight: 700;
+    padding-left: 20px;
+    padding-right: 5px;
+    height: 20px;
+    margin: 5px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+}
+
+.room__price {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 15px;
+    margin-top: 8px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(255, 75, 119, 1);
+}
+
+.logo-currency {
+    font-family: Roboto;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    margin-top: 0px;
+    margin-left: 10px;
+    text-align: left;
+    color: rgba(153, 153, 153, 1);
+}
+
+.cost {
+    display: flex;
+    flex-direction: row;
+}
+
+.price-button {
+    margin: 10px 10px 10px 15px;
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    width: 180px;
+    height: 48px;
+    border-radius: 5px;
+    background: rgba(249, 17, 85, 1);
+}

@@ -1,38 +1,27 @@
 export const roomsInitialization = [
     {
-      name: 'Архыз',
-      text: '',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/rooms-compressed/arkhyz.jpg',
-      cost: 1,
+      name: 'Представительский люкс',
+      text: 'Эксклюзивный номер с панорамным видом на центр города Москвы',
+      link: './images/rooms/number1.jpg',
+      cost: '7 900',
       isChoise: false,
+      //number: 0,
     },
     {
-      name: 'Архыз',
-      text: '',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/rooms-compressed/arkhyz.jpg',
-      cost: 1,
+      name: 'Дуплекс',
+      text: 'Просторный двухкомнатный номер с шикарным видом на парк',
+      link: './images/rooms/number2.jpg',
+      cost: '5 700',
       isChoise: false,
+      //number: 1,
     },
     {
-      name: 'Архыз',
-      text: '',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/rooms-compressed/arkhyz.jpg',
-      cost: 1,
+      name: 'Бизнес-люкс',
+      text: 'Трёхкомнатный номер с панорамным видом на Москву-реку',
+      link: './images/rooms/number3.jpg',
+      cost: '4 900',
       isChoise: false,
-    },
-    {
-      name: 'Архыз',
-      text: '',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/rooms-compressed/arkhyz.jpg',
-      cost: 1,
-      isChoise: false,
-    },
-    {
-      name: 'Архыз',
-      text: '',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/rooms-compressed/arkhyz.jpg',
-      cost: 1,
-      isChoise: false,
+      //number: 2,
     }
   ];
   
