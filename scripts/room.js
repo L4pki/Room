@@ -7,7 +7,7 @@ let roomsArray = roomsInitialization.map((item) => item);
 
 
 const roomTemplate = document.querySelector('.room-pattern').content;
-const rooms = document.querySelector('.rooms');
+const rooms = document.querySelector('.rooms-content');
 
 function createRooms(data)
 {

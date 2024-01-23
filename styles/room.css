@@ -13,12 +13,8 @@
     justify-self: center;
 }
 
-.rooms-backgraund {
+body {
     background: linear-gradient(rgba(222, 237, 255, 0.6), rgba(166, 204, 250, 0.5));
-}
-
-html, body {
-    background-size: cover;
 }
 
 .rooms-container {
@@ -55,7 +51,7 @@ html, body {
     
 }
 
-.rooms {
+.rooms-content {
     display: grid;
     max-width: 1180px;
     margin: 30px auto 0 auto;
@@ -64,13 +60,15 @@ html, body {
 }
 
 @font-face {
-    font-family: 'Roboto'; 
-    src: url(/fonts/Roboto.ttf); 
-    font-family: 'OpenSans'; 
-    src: url(/fonts/OpenSans.ttf); 
+    font-family: 'OpenSans';
+    src: local('OpenSans'),
+        url('../fonts/OpenSans.ttf');
+    font-family: 'Roboto';
+    src: local('Roboto-Black'),
+        url('../fonts/Roboto-Black.woff');
 }
 
-.name {
+.rooms-title {
     font-family: "Roboto";
     color: rgba(0, 0, 0, 1);
     font-size: 36px;
@@ -153,7 +151,13 @@ html, body {
     text-align: left;
     color: rgba(255, 255, 255, 1);
     padding-bottom: 7px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.divid-line {
+    margin: 5px 0px 0px 20px;
+	width: 323px;
+	border: none;
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .reserved {
