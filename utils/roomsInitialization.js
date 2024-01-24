@@ -5,7 +5,7 @@ export const roomsInitialization = [
       link: './images/rooms/number1.jpg',
       cost: '7 900',
       isChoise: false,
-      bestPrice: false,
+      discount: false,
       number: 0,
     },
     {
@@ -14,7 +14,7 @@ export const roomsInitialization = [
       link: './images/rooms/number2.jpg',
       cost: '5 700',
       isChoise: false,
-      bestPrice: true,
+      discount: true,
       number: 1,
     },
     {
@@ -23,7 +23,7 @@ export const roomsInitialization = [
       link: './images/rooms/number3.jpg',
       cost: '4 900',
       isChoise: true,
-      bestPrice: false,
+      discount: false,
       number: 2,
     }
   ];

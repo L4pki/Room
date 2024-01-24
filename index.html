@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyProject</title>
-    <link rel="stylesheet" href="./styles/room.css" >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyProject</title>
+  <link rel="stylesheet" href="./styles/room.css">
 </head>
+
 <body>
   <div class="rooms-container">
     <h1 class="rooms-title">Номера и цены</h1>
@@ -13,45 +15,45 @@
 
     </section>
     <template class="room-pattern">
-        <figure class="room">
-          <img class="room__image" src="" alt="" />
+      <figure class="room">
+        <img class="room__image" src="" alt="" />
+        <div class="room__content">
+          <div class="discount">
+            <div class="discount__textBox">
+              <div class="discount__text">Гарантия лучшей цены!</div>
+            </div>
+            <img class="discount__image" src="./images/DiscountLogo/icon-discount.png" alt="" />
+          </div>
           <figcaption class="room__caption">
-            <div class="bestPrice">
-              <div class="bestPrice-textBox">
-                <div class="bestPrice-text">Гарантия лучшей цены!</div>
-              </div>
-              <img class="discount-image" src="./images/DiscountLogo/icon-discount.png" alt="" />
-            </div>
-            
-            <div class="description-block">
-              <h3 class="room__title"></h3>
-              <div class="room__text"></div>
-            </div>
-            <hr class="divid-line">
-            <div class="price-block">
-              <div class="price-value">
-                <h4 class="text-cost">Цена за сутки</h4>
-                <div class="cost">
-                    <h4 class="text-cost2">oт</h4>
-                    <h3 class="room__price"></h3>
-                    <h3 class="logo-currency">₽</h3>
-                </div>
-              </div>
-              <div>
-                <button class="price price-button">Забронировать</button>
-              </div>
-            </div>
-            <div class="reserved">
-              <div class="reserved__text">Номер зарезервирован</div>
-              <div class="reserved__bottom-textBox">
-                <div class="reserved__text">Перейти к</div>
-                <div class="reserved__text2">оплате</div>
-              </div>
-            </div>
+            <h3 class="room__title"></h3>
+            <div class="room__text"></div>
           </figcaption>
-        </figure>
+          <hr class="divid-line">
+          <div class="price-block">
+            <div class="price-value">
+              <h4 class="text-price">Цена за сутки</h4>
+              <div class="cost">
+                <h4 class="text-price2">oт</h4>
+                <h3 class="room__price"></h3>
+                <h3 class="logo-currency">₽</h3>
+              </div>
+            </div>
+            <div>
+              <button class="reservation defoult-button">Забронировать</button>
+            </div>
+          </div>
+          <div class="reserved">
+            <div class="reserved__text">Номер зарезервирован</div>
+            <div class="reserved__bottom-textBox">
+              <div class="reserved__text">Перейти к</div>
+              <div class="reserved__text2">оплате</div>
+            </div>
+          </div>
+        </div>
+      </figure>
     </template>
   </div>
-  <script type="module" src="./scripts/room.js" ></script>
+  <script type="module" src="./scripts/room.js"></script>
 </body>
+
 </html>

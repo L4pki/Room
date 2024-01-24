@@ -9,9 +9,8 @@ let roomsArray = roomsInitialization.map((item) => item);
 const roomTemplate = document.querySelector('.room-pattern').content;
 const rooms = document.querySelector('.rooms-content');
 
-function createRooms(data)
-{
-    console.log(roomTemplate.querySelector('.room'));
+function createRooms(data) {
+  console.log(roomTemplate.querySelector('.room'));
   const roomElement = roomTemplate.querySelector('.room').cloneNode(true);
   const roomLink = roomElement.querySelector('.room__image');
   roomLink.src = data.link;
@@ -22,142 +21,142 @@ function createRooms(data)
   roomText.textContent = data.text;
   const roomCost = roomElement.querySelector('.room__price');
   roomCost.textContent = data.cost;
-  const buttonTake = roomElement.querySelector('.price-button');
-  const caption = roomElement.querySelector('.room__caption');
-  createEventForButton(buttonTake,caption);
+  const buttonTake = roomElement.querySelector('.reservation');
+  const content = roomElement.querySelector('.room__content');
+  createEventForButton(buttonTake, content);
   createEventForName(roomTitle);
-  if(data.bestPrice){
-    createEventForCaption(caption);
+  if (data.discount) {
+    createEventForContent(content);
   }
-  createEventForCaptionNonReserved(caption);
-  if(data.isChoise){
-    mouseoutCaptionDefoult(caption);
+  createEventForContentNonReserved(content);
+  if (data.isChoise) {
+    mouseoutContentDefoult(content);
   }
-  rooms.append(roomElement); 
+  rooms.append(roomElement);
 }
 
-function createEventForCaptionNonReserved(element) {
-  element.addEventListener('click', ()=>clickCaption(element));
+function createEventForContentNonReserved(element) {
+  element.addEventListener('click', () => clickContent(element));
 }
 
-function clickCaption(element) {
+function clickContent(element) {
   const reservedBlock = element.querySelector('.reserved');
-  if(reservedBlock.style.display == 'flex') {
+  if (reservedBlock.style.display == 'flex') {
     element.style.background = 'linear-gradient(rgba(10, 34, 64, 0.1), rgba(10, 34, 64, 1))';
     reservedBlock.style.display = 'none';
-    const priceButton = element.querySelector('.price');
-    if(priceButton.classList.contains('price-button-checked')) {
-      priceButton.classList.remove('price-button-checked');
+    const reservationButton = element.querySelector('.reservation');
+    if (reservationButton.classList.contains('checked-button')) {
+      reservationButton.classList.remove('checked-button');
     }
-    priceButton.classList.add('price-button');
+    reservationButton.classList.add('defoult-button');
     const priceBlock = element.querySelector('.price-block');
     priceBlock.style.display = 'flex';
   }
 }
 
-function createEventForCaption(element) {
-  element.addEventListener('mouseover',()=> {
+function createEventForContent(element) {
+  element.addEventListener('mouseover', () => {
     const reserved = element.querySelector('.reserved');
-    if(reserved.style.display == 'none'||reserved.style.display == false) {
-      mouseoverCaption(element);
+    if (reserved.style.display == 'none' || reserved.style.display == false) {
+      mouseoverContent(element);
     }
   });
 }
 
-function mouseoverCaption(element){
-  const checkBestPrice = element.querySelector('.bestPrice')
-  checkBestPrice.style.display = 'flex';
+function mouseoverContent(element) {
+  const checkDiscount = element.querySelector('.discount')
+  checkDiscount.style.display = 'flex';
 }
 
 function createEventForName(element) {
   element.addEventListener('click', clickName);
-  element.addEventListener('mouseover',mouseoverName)
-  element.addEventListener('mouseout',mouseoutName)
+  element.addEventListener('mouseover', mouseoverName)
+  element.addEventListener('mouseout', mouseoutName)
 }
 
-function clickName(){
-  if(this.classList.contains('room__title-mousover')){
+function clickName() {
+  if (this.classList.contains('room__title-mousover')) {
     this.classList.remove('room__title-mousover');
     this.classList.add('room__title-checked');
-  } else{
-      if(this.classList.contains('room__title-checked')){
-        this.classList.remove('room__title-checked');
-        this.classList.add('room__title-mousover');
-      }  
-    }  
+  } else {
+    if (this.classList.contains('room__title-checked')) {
+      this.classList.remove('room__title-checked');
+      this.classList.add('room__title-mousover');
+    }
+  }
 }
 
-function mouseoverName(){
-  if(this.classList.contains('room__title')){
+function mouseoverName() {
+  if (this.classList.contains('room__title')) {
     this.classList.remove('room__title');
     this.classList.add('room__title-mousover');
   }
 }
 
 function mouseoutName() {
-  if(this.classList.contains('room__title-mousover')){
+  if (this.classList.contains('room__title-mousover')) {
     this.classList.remove('room__title-mousover');
     this.classList.add('room__title');
   }
 }
 //////////////
-function clickRoom(element,caption) {
-  clickRoom1 (element);
-  caption.addEventListener('mouseleave',() => mouseoutCaption(element,caption))
+function clickRoom(element, content) {
+  clickRoom1(element);
+  content.addEventListener('mouseleave', () => mouseoutContent(element, content))
 }
 
 function clickRoom1(element) {
-  if(element.classList.contains('price-button-mousover')){
-    element.classList.remove('price-button-mousover');
-    element.classList.add('price-button-checked');
-  } else{
-      if(element.classList.contains('price-button-checked')){
-        element.classList.remove('price-button-checked');
-        element.classList.add('price-button-mousover');
-      }  
-    }  
+  if (element.classList.contains('mousover-button')) {
+    element.classList.remove('mousover-button');
+    element.classList.add('checked-button');
+  } else {
+    if (element.classList.contains('checked-button')) {
+      element.classList.remove('checked-button');
+      element.classList.add('mousover-button');
+    }
+  }
 }
 
-function mouseoutCaption(button,element) {
-  if(button.classList.contains('price-button-checked')) {
+function mouseoutContent(button, element) {
+  if (button.classList.contains('checked-button')) {
     const priceBlock = element.querySelector('.price-block');
     priceBlock.style.display = 'none';
     const reservedBlock = element.querySelector('.reserved');
     reservedBlock.style.display = 'flex';
     element.style.background = 'rgba(255, 255, 255, 0.4)';
-    const bestPrice = element.querySelector('.bestPrice');
-    bestPrice.style.display = 'none';
+    const discount = element.querySelector('.discount');
+    discount.style.display = 'none';
   }
 }
 
-function mouseoutCaptionDefoult(caption) {
-  const priceBlock = caption.querySelector('.price-block');
+function mouseoutContentDefoult(content) {
+  const priceBlock = content.querySelector('.price-block');
   priceBlock.style.display = 'none';
-  const reservedBlock = caption.querySelector('.reserved');
+  const reservedBlock = content.querySelector('.reserved');
   reservedBlock.style.display = 'flex';
-  caption.style.background = 'rgba(255, 255, 255, 0.4)';
-  const bestPrice = caption.querySelector('.bestPrice');
-  bestPrice.style.display = 'none';
+  content.style.background = 'rgba(255, 255, 255, 0.4)';
+  const discount = content.querySelector('.discount');
+  discount.style.display = 'none';
 }
 
 function mouseoverRoom() {
-  if(this.classList.contains('price-button')){
-    this.classList.remove('price-button');
-    this.classList.add('price-button-mousover');
+  if (this.classList.contains('defoult-button')) {
+    this.classList.remove('defoult-button');
+    this.classList.add('mousover-button');
   }
 }
 
 function mouseoutRoom() {
-  if(this.classList.contains('price-button-mousover')){
-    this.classList.remove('price-button-mousover');
-    this.classList.add('price-button');
+  if (this.classList.contains('mousover-button')) {
+    this.classList.remove('mousover-button');
+    this.classList.add('defoult-button');
   }
 }
 
-function createEventForButton(element,caption) { 
-  element.addEventListener('click',()=>clickRoom(element,caption));
-  element.addEventListener('mouseover',mouseoverRoom)
-  element.addEventListener('mouseout',mouseoutRoom)
+function createEventForButton(element, content) {
+  element.addEventListener('click', () => clickRoom(element, content));
+  element.addEventListener('mouseover', mouseoverRoom)
+  element.addEventListener('mouseout', mouseoutRoom)
 }
 
 roomsArray.forEach(room => {
