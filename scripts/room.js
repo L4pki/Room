@@ -10,155 +10,97 @@ const roomTemplate = document.querySelector('.room-pattern').content;
 const rooms = document.querySelector('.rooms-content');
 
 function createRooms(data) {
-  console.log(roomTemplate.querySelector('.room'));
   const roomElement = roomTemplate.querySelector('.room').cloneNode(true);
   const roomLink = roomElement.querySelector('.room__image');
+  const roomTitle = roomElement.querySelector('.room__title');
+  const roomText = roomElement.querySelector('.room__text');
+  const roomCost = roomElement.querySelector('.room__price');
+  const buttonTake = roomElement.querySelector('.reservation');
+  const roomContent = roomElement.querySelector('.room__content');
+  const reservedTitle = roomElement.querySelector('.room__Reserved .room__title');
+  const reservedText = roomElement.querySelector('.room__Reserved .room__text');
   roomLink.src = data.link;
   roomLink.alt = data.name;
-  const roomTitle = roomElement.querySelector('.room__title');
+  reservedTitle.textContent = data.name;
+  reservedText.textContent = data.text;
   roomTitle.textContent = data.name;
-  const roomText = roomElement.querySelector('.room__text');
-  roomText.textContent = data.text;
-  const roomCost = roomElement.querySelector('.room__price');
   roomCost.textContent = data.cost;
-  const buttonTake = roomElement.querySelector('.reservation');
-  const content = roomElement.querySelector('.room__content');
-  createEventForButton(buttonTake, content);
+  roomText.textContent = data.text;
+  createEventForButton(buttonTake, roomContent);
   createEventForName(roomTitle);
+  createEventForContentReserved(roomContent);
   if (data.discount) {
-    createEventForContent(content);
+    createEventForContent(roomContent);
   }
-  createEventForContentNonReserved(content);
   if (data.isChoise) {
-    mouseoutContentDefoult(content);
+    toggleRoom(roomContent, false);
   }
   rooms.append(roomElement);
-}
-
-function createEventForContentNonReserved(element) {
-  element.addEventListener('click', () => clickContent(element));
-}
-
-function clickContent(element) {
-  const reservedBlock = element.querySelector('.reserved');
-  if (reservedBlock.style.display == 'flex') {
-    element.style.background = 'linear-gradient(rgba(10, 34, 64, 0.1), rgba(10, 34, 64, 1))';
-    reservedBlock.style.display = 'none';
-    const reservationButton = element.querySelector('.reservation');
-    if (reservationButton.classList.contains('checked-button')) {
-      reservationButton.classList.remove('checked-button');
-    }
-    reservationButton.classList.add('defoult-button');
-    const priceBlock = element.querySelector('.price-block');
-    priceBlock.style.display = 'flex';
-  }
-}
-
-function createEventForContent(element) {
-  element.addEventListener('mouseover', () => {
-    const reserved = element.querySelector('.reserved');
-    if (reserved.style.display == 'none' || reserved.style.display == false) {
-      mouseoverContent(element);
-    }
-  });
-}
-
-function mouseoverContent(element) {
-  const checkDiscount = element.querySelector('.discount')
-  checkDiscount.style.display = 'flex';
-}
-
-function createEventForName(element) {
-  element.addEventListener('click', clickName);
-  element.addEventListener('mouseover', mouseoverName)
-  element.addEventListener('mouseout', mouseoutName)
-}
-
-function clickName() {
-  if (this.classList.contains('room__title-mousover')) {
-    this.classList.remove('room__title-mousover');
-    this.classList.add('room__title-checked');
-  } else {
-    if (this.classList.contains('room__title-checked')) {
-      this.classList.remove('room__title-checked');
-      this.classList.add('room__title-mousover');
-    }
-  }
-}
-
-function mouseoverName() {
-  if (this.classList.contains('room__title')) {
-    this.classList.remove('room__title');
-    this.classList.add('room__title-mousover');
-  }
-}
-
-function mouseoutName() {
-  if (this.classList.contains('room__title-mousover')) {
-    this.classList.remove('room__title-mousover');
-    this.classList.add('room__title');
-  }
-}
-//////////////
-function clickRoom(element, content) {
-  clickRoom1(element);
-  content.addEventListener('mouseleave', () => mouseoutContent(element, content))
-}
-
-function clickRoom1(element) {
-  if (element.classList.contains('mousover-button')) {
-    element.classList.remove('mousover-button');
-    element.classList.add('checked-button');
-  } else {
-    if (element.classList.contains('checked-button')) {
-      element.classList.remove('checked-button');
-      element.classList.add('mousover-button');
-    }
-  }
-}
-
-function mouseoutContent(button, element) {
-  if (button.classList.contains('checked-button')) {
-    const priceBlock = element.querySelector('.price-block');
-    priceBlock.style.display = 'none';
-    const reservedBlock = element.querySelector('.reserved');
-    reservedBlock.style.display = 'flex';
-    element.style.background = 'rgba(255, 255, 255, 0.4)';
-    const discount = element.querySelector('.discount');
-    discount.style.display = 'none';
-  }
-}
-
-function mouseoutContentDefoult(content) {
-  const priceBlock = content.querySelector('.price-block');
-  priceBlock.style.display = 'none';
-  const reservedBlock = content.querySelector('.reserved');
-  reservedBlock.style.display = 'flex';
-  content.style.background = 'rgba(255, 255, 255, 0.4)';
-  const discount = content.querySelector('.discount');
-  discount.style.display = 'none';
-}
-
-function mouseoverRoom() {
-  if (this.classList.contains('defoult-button')) {
-    this.classList.remove('defoult-button');
-    this.classList.add('mousover-button');
-  }
-}
-
-function mouseoutRoom() {
-  if (this.classList.contains('mousover-button')) {
-    this.classList.remove('mousover-button');
-    this.classList.add('defoult-button');
-  }
-}
-
-function createEventForButton(element, content) {
-  element.addEventListener('click', () => clickRoom(element, content));
-  element.addEventListener('mouseover', mouseoverRoom)
-  element.addEventListener('mouseout', mouseoutRoom)
 }
 
 roomsArray.forEach(room => {
   createRooms(room);
 });
+
+function createEventForContentReserved(element) {
+  element.addEventListener('click', () => {
+    const reservedBlock = element.querySelector('.room__Reserved');
+    if (reservedBlock.style.display == 'flex') {
+      toggleRoom(element, true);
+      const reservationButton = element.querySelector('.reservation');
+      reservationButton.classList.remove('checked-button');
+      reservationButton.classList.add('defoult-button');
+    }
+  });
+}
+
+function createEventForContent(element) {
+  element.addEventListener('mouseover', () => {
+    const checkDiscount = element.querySelector('.discount');
+    checkDiscount.style.display = 'flex';
+  });
+}
+
+function createEventForName(element) {
+  element.addEventListener('click', () => swap(element, 'room__title-mousover', 'room__title-checked'));
+  element.addEventListener('mouseover', () => swap(element, 'room__title-mousover', 'room__title'))
+  element.addEventListener('mouseout', () => swap(element, 'room__title-mousover', 'room__title'))
+}
+
+function createEventForButton(element, content) {
+  element.addEventListener('click', () => clickRoom(element, content));
+  element.addEventListener('mouseover', () => swap(element, 'mousover-button', 'defoult-button'))
+  element.addEventListener('mouseout', () => swap(element, 'mousover-button', 'defoult-button'))
+}
+
+function clickRoom(element, content) {
+  swap(element, 'mousover-button', 'checked-button')
+  content.addEventListener('mouseleave', () => {
+    if (element.classList.contains('checked-button')) {
+      toggleRoom(content, false);
+    }
+  })
+}
+
+function toggleRoom(element, isReserved) {
+  const reserved = element.querySelector('.room__Reserved');
+  const nonReserved = element.querySelector('.room__nonReserved');
+
+  if (isReserved) {
+    reserved.style.display = 'none';
+    nonReserved.style.display = 'flex';
+  } else {
+    reserved.style.display = 'flex';
+    nonReserved.style.display = 'none';
+  }
+}
+
+function swap(element, class1, class2) {
+  if (element.classList.contains(class1)) {
+    element.classList.remove(class1);
+    element.classList.add(class2);
+  } else if (element.classList.contains(class2)) {
+    element.classList.remove(class2);
+    element.classList.add(class1);
+  }
+}
