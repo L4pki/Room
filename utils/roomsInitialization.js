@@ -22,7 +22,7 @@ export const roomsInitialization = [
     text: 'Трёхкомнатный номер с панорамным видом на Москву-реку',
     link: './images/rooms/number3.jpg',
     cost: '4 900',
-    isChoise: true,
+    isChoise: false,
     discount: false,
     number: 2,
   }

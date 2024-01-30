@@ -3,8 +3,10 @@ import roomsInitialization from "../utils/roomsInitialization.js";
 
 
 
-let roomsArray = roomsInitialization.map((item) => item);
-
+let roomsArray = [];
+for (let i = 0; i < roomsInitialization.length; i++) {
+  roomsArray.push(roomsInitialization[i]);
+}
 
 const roomTemplate = document.querySelector('.room-pattern').content;
 const rooms = document.querySelector('.rooms-content');
@@ -38,9 +40,9 @@ function createRooms(data) {
   rooms.append(roomElement);
 }
 
-roomsArray.forEach(room => {
-  createRooms(room);
-});
+for (let i = 0; i < roomsArray.length; i++) {
+  createRooms(roomsArray[i]);
+}
 
 function createEventForContentReserved(element) {
   element.addEventListener('click', () => {

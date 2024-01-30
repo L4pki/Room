@@ -13,13 +13,38 @@
     justify-self: center;
 }
 
+@media (max-width: 400px) { 
+    .room {
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        background-color: white;
+        margin: 0;
+        width: 340px;
+        height: 340px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0px 0px 20px rgb(129, 129, 129);
+        align-self: center;
+        justify-self: center;
+    }
+}
+
 body {
     background: linear-gradient(rgba(222, 237, 255, 0.6), rgba(166, 204, 250, 0.5));
+    height: 100vh;
 }
 
 .rooms-container {
     margin-top: 240px;
     margin-bottom: 240px;
+}
+
+@media (max-width: 1160px) { 
+    .rooms-container {
+        margin-top: 30px;
+        margin-bottom: 240px;
+    }
 }
 
 .room__image {
@@ -48,15 +73,14 @@ body {
     background: linear-gradient(rgba(10, 34, 64, 0.1), rgba(10, 34, 64, 1));
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 .rooms-content {
     display: grid;
     max-width: 1180px;
     margin: 30px auto 0 auto;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 15px 15px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 30px 30px;
 }
 
 @font-face {
@@ -89,6 +113,16 @@ body {
     margin-top: 30px;
     margin-left: 20px;
     position: absolute;
+}
+
+@media (max-width: 400px) { 
+    .discount {
+        display: none;
+        flex-direction: row;
+        margin-top: 50px;
+        margin-left: 20px;
+        position: absolute;
+    }
 }
 
 .discount__textBox {
@@ -149,7 +183,8 @@ body {
     text-align: left;
     color: rgba(255, 255, 255, 1);
     padding-bottom: 7px;
-   
+    overflow: hidden;
+    height: 45px;
 }
 
 .divid-line {
@@ -157,6 +192,15 @@ body {
     width: 323px;
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 400px) { 
+    .divid-line {
+        margin: 5px 0px 0px 20px;
+        width: 305px;
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
 }
 
 .room__nonReserved {
@@ -210,6 +254,16 @@ body {
     display: flex;
     flex-direction: row;
     padding: 0px 0px 20px 20px;
+}
+
+@media (max-width: 400px) { 
+    .price-block {
+        width: 320px;
+        height: 70px;
+        display: flex;
+        flex-direction: row;
+        padding: 0px 0px 20px 20px;
+    }
 }
 
 .price-value {
@@ -268,8 +322,13 @@ body {
     flex-direction: row;
 }
 
-.defoult-button {
+.reservation{
+    width: 180px;
+    height: 48px;
     margin: 10px 0px 10px 30px;
+}
+
+.defoult-button {
     font-family: OpenSans;
     font-size: 16px;
     font-weight: 700;
@@ -277,14 +336,11 @@ body {
     letter-spacing: 0em;
     text-align: center;
     color: rgba(255, 255, 255, 1);
-    width: 180px;
-    height: 48px;
     border-radius: 5px;
     background: rgba(249, 17, 85, 1);
 }
 
 .checked-button {
-    margin: 10px 0px 10px 30px;
     font-family: OpenSans;
     font-size: 16px;
     font-weight: 700;
@@ -292,15 +348,12 @@ body {
     letter-spacing: 0em;
     text-align: center;
     color: rgba(249, 99, 124, 1);
-    width: 180px;
-    height: 48px;
     border-radius: 5px;
     background: rgba(216, 0, 63, 1);
     cursor: pointer;
 }
 
 .mousover-button {
-    margin: 10px 0px 10px 30px;
     font-family: OpenSans;
     font-size: 16px;
     font-weight: 700;
@@ -308,10 +361,16 @@ body {
     letter-spacing: 0em;
     text-align: center;
     color: rgba(255, 255, 255, 1);
-    width: 180px;
-    height: 48px;
     border-radius: 5px;
     background: rgba(216, 0, 63, 1);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+}
+
+@media (max-width: 400px) { 
+    .reservation{
+        width: 180px;
+        height: 48px;
+        margin: 10px 0px 10px 10px;
+    }
 }
